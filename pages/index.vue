@@ -1,71 +1,36 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        covid19zc-website
-      </h1>
-      <h2 class="subtitle"></h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+  <div class="max-w-4xl m-auto">
+    <section class="flex justify-between pt-8">
+      <CardCounter
+        legend-color="orange"
+        card-title="Persons Under Investigation"
+        :total-cases="33"
+        :increase="7"
+        :decrease="11"
+      />
+      <CardCounter
+        legend-color="yellow"
+        card-title="Persons Under Monitoring"
+        :total-cases="712"
+        :increase="52"
+        :decrease="184"
+      />
+      <CardCounter
+        legend-color="red"
+        card-title="Case Confirmed"
+        :total-cases="1"
+        :increase="1"
+      />
+    </section>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import CardCounter from '@/components/CardCounter.vue'
 
 export default {
   components: {
-    Logo
+    CardCounter
   }
 }
 </script>
-
-<style>
-/* Sample `apply` at-rules with Tailwind CSS
-.container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
-*/
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
