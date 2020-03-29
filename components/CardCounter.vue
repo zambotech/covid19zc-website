@@ -1,5 +1,5 @@
 <template>
-  <div class="p-8 shadow-md inline-block rounded-md">
+  <div class="p-8 shadow-md inline-block rounded-md bg-white">
     <div class="flex items-center">
       <div
         :class="`bg-${legendColor}-400`"
