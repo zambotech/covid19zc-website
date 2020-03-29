@@ -7,7 +7,7 @@
 export default {
   props: {
     lastUpdated: {
-      type: Date,
+      type: String,
       default: ''
     }
   }

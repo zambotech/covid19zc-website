@@ -3,8 +3,8 @@
     <Notification />
     <div class="max-w-4xl m-auto">
       <Header title="COVID19 Tracker: Zamboanga City"></Header>
-      <LastUpdated lastUpdated="Wed, Mar 25, 2020 9:00 PM"></LastUpdated>
-      <section class="flex justify-between pt-8">
+      <LastUpdated last-updated="Wed, Mar 25, 2020 9:00 PM"></LastUpdated>
+      <section class="flex justify-between mt-8 mb-12">
         <CardCounter
           legend-color="orange"
           card-title="Persons Under Investigation"
@@ -26,6 +26,14 @@
           :increase="1"
         />
       </section>
+
+      <section>
+        <accordion title="Zamboanga Task Force COVID-19" :visible="true">
+          <div class="py-6">
+            <h1 class="font-semibold text-gray-700">Sample Text</h1>
+          </div>
+        </accordion>
+      </section>
     </div>
   </div>
 </template>
@@ -35,13 +43,15 @@ import Notification from '@/components/Notification.vue'
 import CardCounter from '@/components/CardCounter.vue'
 import Header from '@/components/Header.vue'
 import LastUpdated from '@/components/LastUpdated.vue'
+import Accordion from '@/components/Accordion.vue'
 
 export default {
   components: {
     Notification,
     CardCounter,
     Header,
-    LastUpdated
+    LastUpdated,
+    Accordion
   }
 }
 </script>
