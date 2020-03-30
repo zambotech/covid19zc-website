@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-100">
+  <div>
     <Notification />
     <div class="max-w-4xl m-auto">
       <Header title="COVID19 Tracker: Zamboanga City"></Header>
