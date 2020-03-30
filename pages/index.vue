@@ -26,7 +26,8 @@
           :increase="1"
         />
       </section>
-
+      <div class="border-b-2 w-64 m-auto border-gray-200 mt-4"></div>
+      <Header class="mb-2" title="Hotline Numbers"></Header>
       <section>
         <accordion title="Zamboanga Task Force COVID-19" :visible="true">
           <div class="py-6">
