@@ -4,7 +4,9 @@
       class="flex justify-between items-center cursor-pointer"
       @click="isVisible = !isVisible"
     >
-      <h2 class="text-gray-600 text-xl font-medium">{{ title }}</h2>
+      <h2 class="text-gray-600 text-base lg:text-xl font-medium">
+        {{ title }}
+      </h2>
       <svg
         v-if="isVisible"
         width="10"
