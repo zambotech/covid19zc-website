@@ -4,7 +4,9 @@
     <div class="max-w-4xl m-auto px-8 lg:px-0">
       <Header title="COVID19 Tracker: Zamboanga City"></Header>
       <LastUpdated last-updated="Wed, Mar 25, 2020 9:00 PM"></LastUpdated>
-      <section class="flex justify-between mt-8 mb-12 flex-wrap lg:px-0">
+      <section
+        class="flex justify-between mt-8 mb-8 lg:mb-12 flex-wrap lg:px-0"
+      >
         <CardCounter
           legend-color="orange"
           card-title="Persons Under Investigation"
