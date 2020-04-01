@@ -7,19 +7,19 @@
         class="flex justify-between mt-8 mb-8 lg:mb-12 flex-wrap lg:px-0"
       >
         <CardCounter
-          legend-color="orange"
+          legend-color="#F6AD55"
           card-title="Persons Under Investigation"
           last-updated="March 31, 2020 10:05 AM"
           :total-cases="40"
         />
         <CardCounter
-          legend-color="yellow"
+          legend-color="#F6E05E"
           card-title="Persons Under Monitoring"
           last-updated="March 27, 2020"
           :total-cases="1703"
         />
         <CardCounter
-          legend-color="red"
+          legend-color="#F56565"
           card-title="Cases Confirmed"
           last-updated="April 1, 2020 02:59 PM"
           :total-cases="3"
@@ -199,6 +199,25 @@ export default {
     CardCounter,
     Header,
     Accordion
+  },
+  head() {
+    return {
+      title: 'COVID-19 Tracker: Zamboanga City',
+      meta: [
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          property: 'og:title',
+          content: 'COVID-19 Tracker: Zamboanga City'
+        },
+        {
+          hid: 'og:site_name',
+          name: 'og:site_name',
+          property: 'og:site_name',
+          content: 'COVID-19 Tracker: Zamboanga City'
+        }
+      ]
+    }
   }
 }
 </script>
