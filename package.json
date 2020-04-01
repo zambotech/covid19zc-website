@@ -1,7 +1,7 @@
 {
   "name": "covid19zc-website",
   "version": "1.0.0",
-  "description": "",
+  "description": "Tracking current statistics of confirmed COVID-19 cases and history in Zamboanga City",
   "author": "jbienesdev",
   "private": true,
   "scripts": {
