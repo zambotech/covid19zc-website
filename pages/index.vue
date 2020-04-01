@@ -9,20 +9,20 @@
         <CardCounter
           legend-color="orange"
           card-title="Persons Under Investigation"
-          last-updated="March 25, 9:00 PM"
-          :total-cases="33"
+          last-updated="March 31, 2020 10:05 AM"
+          :total-cases="40"
         />
         <CardCounter
           legend-color="yellow"
           card-title="Persons Under Monitoring"
-          last-updated="March 25, 9:00 PM"
-          :total-cases="712"
+          last-updated="March 27, 2020"
+          :total-cases="1703"
         />
         <CardCounter
           legend-color="red"
-          card-title="Case Confirmed"
-          last-updated="March 25, 9:00 PM"
-          :total-cases="1"
+          card-title="Cases Confirmed"
+          last-updated="April 1, 2020 02:59 PM"
+          :total-cases="3"
         />
       </section>
       <div class="border-b-2 w-64 m-auto border-gray-200 mt-4"></div>
