@@ -9,14 +9,14 @@
         <CardCounter
           legend-color="#F6AD55"
           card-title="Persons Under Investigation"
-          last-updated="March 31, 2020 10:05 AM"
-          :total-cases="40"
+          last-updated="April 1, 2020 10:27 PM"
+          :total-cases="59"
         />
         <CardCounter
           legend-color="#F6E05E"
           card-title="Persons Under Monitoring"
-          last-updated="March 27, 2020"
-          :total-cases="1703"
+          last-updated="April 1, 2020 10:27 PM"
+          :total-cases="2381"
         />
         <CardCounter
           legend-color="#F56565"
