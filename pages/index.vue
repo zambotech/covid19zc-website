@@ -199,25 +199,6 @@ export default {
     CardCounter,
     Header,
     Accordion
-  },
-  head() {
-    return {
-      title: 'COVID-19 Tracker: Zamboanga City',
-      meta: [
-        {
-          hid: 'og:title',
-          name: 'og:title',
-          property: 'og:title',
-          content: 'COVID-19 Tracker: Zamboanga City'
-        },
-        {
-          hid: 'og:site_name',
-          name: 'og:site_name',
-          property: 'og:site_name',
-          content: 'COVID-19 Tracker: Zamboanga City'
-        }
-      ]
-    }
   }
 }
 </script>
