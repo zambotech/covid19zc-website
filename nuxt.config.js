@@ -14,6 +14,11 @@ export default {
         hid: 'description',
         name: 'description',
         content: process.env.npm_package_description || ''
+      },
+      {
+        hid: 'og:image',
+        name: 'og:image',
+        content: '/android-chrome-512x512.png'
       }
     ],
     link: [
