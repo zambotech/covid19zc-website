@@ -13,6 +13,9 @@ module.exports = {
     colors: {
       ...colors,
       primary: '#FF5A6F'
+    },
+    zIndex: {
+      '-10': '-10',
     }
   },
   variants: {},
