@@ -9,7 +9,7 @@
 
 <style scoped>
 .maintenance-container {
-  height: 70vh;
+  height: 80vh;
 }
 
 .maintenance-image {

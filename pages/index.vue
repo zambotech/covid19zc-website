@@ -5,8 +5,8 @@
         <CardCounter
           class="md:mr-6 w-full md:w-auto flex-none md:flex-1"
           card-title="Persons Under Investigation"
-          last-updated="April 2, 2020"
-          :total-cases="55"
+          last-updated="April 3, 2020"
+          :total-cases="66"
         />
         <CardCounter
           class="md:mr-6 w-full md:w-auto flex-none md:flex-1"
