@@ -21,8 +21,8 @@
         <CardCounter
           legend-color="#F56565"
           card-title="Cases Confirmed"
-          last-updated="April 1, 2020 02:59 PM"
-          :total-cases="3"
+          last-updated="April 4, 2020 10:09 AM"
+          :total-cases="4"
         />
       </section>
       <div class="border-b-2 w-64 m-auto border-gray-200 mt-4"></div>
