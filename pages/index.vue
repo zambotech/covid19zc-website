@@ -23,9 +23,11 @@
       </section>
       <p class="text-purple-900 font-bold text-3xl my-8">Hotline Numbers</p>
       <section class="flex flex-wrap items-start mb-24">
-        <ZTFCOVID19 class="mb-6 w-full lg:w-auto lg:mr-6" />
-        <ZCMCTeleconsultation class="mb-6 w-full lg:w-auto lg:mr-6" />
-        <ReliefOperations class="mb-6 w-full lg:w-auto lg:mr-6" />
+        <div class="flex flex-col lg:flex-row xl:flex-col items-start xl:items-stretch w-full xl:w-auto">
+          <ZTFCOVID19 class="mb-6 mr-6 w-full xl:w-auto" />
+          <ReliefOperations class="mb-6 mr-6 w-full xl:w-auto " />
+        </div>
+        <ZCMCTeleconsultation class="mb-6 w-full xl:w-auto lg:mr-6" />
       </section>
     </div>
   </div>
