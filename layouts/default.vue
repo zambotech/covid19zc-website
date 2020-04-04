@@ -31,9 +31,9 @@
         </div>
       </nav>
       <nuxt />
-    </div>
-    <div class="flex justify-center text-purple-900 mb-8">
-      Made by Zamboanga Tech Community for Zamboangueños
+      <footer class="flex text-purple-900 mb-8">
+        Made by Zamboanga Tech Community for Zamboangueños
+      </footer>
     </div>
   </div>
 </template>
