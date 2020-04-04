@@ -21,17 +21,11 @@
           :total-cases="4"
         />
       </section>
-      <p class="text-purple-900 font-bold text-3xl">Hotline Numbers</p>
-      <section class="grid gap-4 mb-24">
-        <Accordion title="Zamboanga Task Force COVID-19" :visible="true">
-          <ZTFCOVID19 />
-        </Accordion>
-        <Accordion
-          title="Zamboanga City Medical Center Teleconsultation"
-          :visible="true"
-        >
-          <ZCMCTeleconsultation />
-        </Accordion>
+      <p class="text-purple-900 font-bold text-3xl my-8">Hotline Numbers</p>
+      <section class="flex flex-wrap items-start mb-24">
+        <ZTFCOVID19 class="mb-6 w-full lg:w-auto lg:mr-6" />
+        <ZCMCTeleconsultation class="mb-6 w-full lg:w-auto lg:mr-6" />
+        <ReliefOperations class="mb-6 w-full lg:w-auto lg:mr-6" />
       </section>
     </div>
   </div>
@@ -42,13 +36,15 @@ import CardCounter from '@/components/CardCounter.vue'
 import Accordion from '@/components/Accordion.vue'
 import ZTFCOVID19 from '@/components/hotline/ZTFCOVID19.vue'
 import ZCMCTeleconsultation from '@/components/hotline/ZCMCTeleconsultation.vue'
+import ReliefOperations from '@/components/hotline/ReliefOperations.vue'
 
 export default {
   components: {
     CardCounter,
     Accordion,
     ZTFCOVID19,
-    ZCMCTeleconsultation
+    ZCMCTeleconsultation,
+    ReliefOperations
   }
 }
 </script>
