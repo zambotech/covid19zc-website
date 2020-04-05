@@ -17,8 +17,8 @@
         <CardCounter
           class="w-full md:w-auto flex-none md:flex-1"
           card-title="Cases Confirmed"
-          last-updated="April 4, 2020 10:09 AM"
-          :total-cases="4"
+          last-updated="April 5, 2020 08:36 AM"
+          :total-cases="5"
         />
       </section>
       <p class="text-purple-900 font-bold text-3xl my-8">Hotline Numbers</p>
