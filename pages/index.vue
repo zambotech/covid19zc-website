@@ -20,6 +20,41 @@
           :last-updated="confirmed.lastUpdated"
           :total-cases="confirmed.totalCases"
         />
+        <div class="flex flex-wrap w-full bg-white lg:mt-6 p-6 rounded-lg">
+          <div class="w-full lg:w-4/6 lg:pr-4">
+            <h3 class="text-primary font-semibold text-sm lg:text-base">Affected areas</h3>
+            <div id="map-wrap" class="my-2">
+              <l-map :zoom="10" :center="[7.083003, 122.0790]">
+                <l-tile-layer url="https://{s}.tile.osm.org/{z}/{x}/{y}.png"></l-tile-layer>
+                <template v-if="affectedAreas.length">
+                  <l-marker 
+                    v-for="(barangay, i) in affectedAreas" 
+                    :key="i" 
+                    :icon="icon" 
+                    :lat-lng="[barangay.lat, barangay.lng]">
+                    <l-tooltip>
+                      <div>{{ barangay.locationName }}</div>
+                      <div v-if="barangay.status">Status: {{ barangay.status }}</div>
+                    </l-tooltip>
+                  </l-marker>
+                </template>
+              </l-map>
+            </div>
+            <h4 class="text-primary font-light text-xs italic">Note: Only those admitted here in Zamboanga</h4>
+          </div>
+          <div class="w-full lg:w-2/6 mt-6 lg:mt-0">
+            <h3 class="text-primary font-semibold text-sm lg:text-base">Barangays</h3>
+            <div class="flex flex-wrap my-2" v-if="affectedAreas.length">
+              <BarangayCard 
+                v-for="barangay in affectedAreas" 
+                :key="barangay.index" 
+                :index="barangay.index"
+                :location-name="barangay.locationName"
+                :total="barangay.total"
+                class="w-full mb-4" />
+            </div>
+          </div>
+        </div>
       </section>
       <p class="text-purple-900 font-bold text-3xl my-8">Hotline Numbers</p>
       <section class="flex flex-wrap items-start mb-24">
@@ -34,8 +69,10 @@
 </template>
 
 <script>
+import L from 'leaflet'
+
 import CardCounter from '@/components/CardCounter.vue'
-import Accordion from '@/components/Accordion.vue'
+import BarangayCard from '@/components/BarangayCard.vue'
 import ZTFCOVID19 from '@/components/hotline/ZTFCOVID19.vue'
 import ZCMCTeleconsultation from '@/components/hotline/ZCMCTeleconsultation.vue'
 import ReliefOperations from '@/components/hotline/ReliefOperations.vue'
@@ -43,7 +80,7 @@ import ReliefOperations from '@/components/hotline/ReliefOperations.vue'
 export default {
   components: {
     CardCounter,
-    Accordion,
+    BarangayCard,
     ZTFCOVID19,
     ZCMCTeleconsultation,
     ReliefOperations
@@ -52,7 +89,12 @@ export default {
     return {
       confirmed: {},
       pui: {},
-      pum: {}
+      pum: {},
+      icon: L.icon({
+        iconUrl: '/images/map-virus.svg',
+        iconSize: [35, 35]
+      }),
+      affectedAreas: []
     }
   },
   created() {
@@ -62,6 +104,18 @@ export default {
       this.pui = pui
       this.pum = pum
     })
+
+    this.$fireDb.ref('affectedAreas').on('value', snapshot => {
+      snapshot.forEach(childSnapshot => {
+        this.affectedAreas.push(childSnapshot.val())
+      })
+    })
   }
 }
 </script>
+
+<style scoped>
+#map-wrap {
+  height: 400px;
+}
+</style>
