@@ -5,20 +5,20 @@
         <CardCounter
           class="md:mr-6 w-full md:w-auto flex-none md:flex-1"
           card-title="Persons Under Investigation"
-          last-updated="April 3, 2020"
-          :total-cases="66"
+          :last-updated="pui.lastUpdated"
+          :total-cases="pui.totalCases"
         />
         <CardCounter
           class="md:mr-6 w-full md:w-auto flex-none md:flex-1"
           card-title="Persons Under Monitoring"
-          last-updated="April 1, 2020 10:27 PM"
-          :total-cases="2381"
+          :last-updated="pum.lastUpdated"
+          :total-cases="pum.totalCases"
         />
         <CardCounter
           class="w-full md:w-auto flex-none md:flex-1"
           card-title="Cases Confirmed"
-          last-updated="April 5, 2020 08:36 AM"
-          :total-cases="5"
+          :last-updated="confirmed.lastUpdated"
+          :total-cases="confirmed.totalCases"
         />
       </section>
       <p class="text-purple-900 font-bold text-3xl my-8">Hotline Numbers</p>
@@ -47,6 +47,21 @@ export default {
     ZTFCOVID19,
     ZCMCTeleconsultation,
     ReliefOperations
+  },
+  data() {
+    return {
+      confirmed: {},
+      pui: {},
+      pum: {}
+    }
+  },
+  created() {
+    this.$fireDb.ref('covidFigures').on('value', snapshot => {
+      let { confirmed, pui, pum } = snapshot.val()
+      this.confirmed = confirmed
+      this.pui = pui
+      this.pum = pum
+    })
   }
 }
 </script>
