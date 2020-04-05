@@ -64,7 +64,8 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
-    '@nuxtjs/firebase'
+    '@nuxtjs/firebase',
+    'nuxt-leaflet'
   ],
   /*
    ** Axios module configuration
@@ -83,6 +84,9 @@ export default {
     services: {
       realtimeDb: true 
     }
+  },
+  purgeCSS: {
+    whitelistPatterns: [/leaflet/, /marker/]
   },
   /*
    ** Build configuration
