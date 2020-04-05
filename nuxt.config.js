@@ -63,13 +63,27 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@nuxtjs/firebase'
   ],
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
   axios: {},
+  firebase: {
+    config: {
+      apiKey: process.env.FIREBASE_API_KEY,
+      authDomain: "covid19zc.firebaseapp.com",
+      databaseURL: "https://covid19zc.firebaseio.com",
+      projectId: "covid19zc",
+      appId: "1:958932231240:web:7ddae052488024ce2fa47d",
+      measurementId: "G-8M05SJN8WY"
+    },
+    services: {
+      realtimeDb: true 
+    }
+  },
   /*
    ** Build configuration
    */
