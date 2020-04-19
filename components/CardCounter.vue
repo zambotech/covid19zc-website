@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center flex-col py-6 rounded-lg bg-white lg:mb-0 mb-8">
     <h3 class="text-primary font-semibold text-sm lg:text-base">{{ cardTitle }}</h3>
-    <h4 v-if="totalCases" class="text-purple-900 font-bold text-5xl lg:text-6xl">{{ totalCases }}</h4>
+    <h4 v-if="!isFetching" class="text-purple-900 font-bold text-5xl lg:text-6xl">{{ totalCases }}</h4>
     <div v-else class="h-24 w-32 mt-2">
       <vue-content-loading :width="90" :height="75" primary="#FFF5F5" secondary="#FED7D7">
         <rect x="2" width="85" height="45" fill="#C4C4C4"/>
@@ -32,6 +32,10 @@ export default {
     lastUpdated: {
       type: String,
       default: ''
+    },
+    isFetching: {
+      type: Boolean,
+      default: false
     }
   },
   components: {

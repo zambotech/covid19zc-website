@@ -4,25 +4,28 @@
       <section class="flex justify-between flex-wrap lg:w-full xl:w-4/6 my-8 lg:mb-12">
         <CardCounter
           class="md:mr-6 w-full md:w-auto flex-none md:flex-1"
-          card-title="Persons Under Investigation"
-          :last-updated="pui.lastUpdated"
-          :total-cases="pui.totalCases"
+          card-title="Suspect"
+          :last-updated="suspect.lastUpdated"
+          :total-cases="suspect.totalCases"
+          :is-fetching="isFetching"
         />
         <CardCounter
           class="md:mr-6 w-full md:w-auto flex-none md:flex-1"
-          card-title="Persons Under Monitoring"
-          :last-updated="pum.lastUpdated"
-          :total-cases="pum.totalCases"
+          card-title="Probable"
+          :last-updated="probable.lastUpdated"
+          :total-cases="probable.totalCases"
+          :is-fetching="isFetching"
         />
         <CardCounter
           class="w-full md:w-auto flex-none md:flex-1"
-          card-title="Cases Confirmed"
+          card-title="Confirmed"
           :last-updated="confirmed.lastUpdated"
           :total-cases="confirmed.totalCases"
+          :is-fetching="isFetching"
         />
         <div class="flex flex-wrap w-full bg-white lg:mt-6 p-6 rounded-lg">
           <div class="w-full lg:w-4/6 lg:pr-4">
-            <h3 class="text-primary font-semibold text-sm lg:text-base">Affected areas</h3>
+            <h3 class="text-primary font-semibold text-sm lg:text-base">Map</h3>
             <div id="map-wrap" class="my-2">
               <l-map :zoom="10" :center="[7.083003, 122.0790]">
                 <l-tile-layer url="https://{s}.tile.osm.org/{z}/{x}/{y}.png"></l-tile-layer>
@@ -43,7 +46,7 @@
             <h4 class="text-primary font-light text-xs italic">Note: Only those admitted here in Zamboanga</h4>
           </div>
           <div class="w-full lg:w-2/6 mt-6 lg:mt-0">
-            <h3 class="text-primary font-semibold text-sm lg:text-base">Barangays</h3>
+            <h3 class="text-primary font-semibold text-sm lg:text-base">Affected areas</h3>
             <div class="flex flex-wrap my-2" v-if="affectedAreas.length">
               <BarangayCard 
                 v-for="barangay in affectedAreas" 
@@ -88,24 +91,28 @@ export default {
   data() {
     return {
       confirmed: {},
-      pui: {},
-      pum: {},
+      suspect: {},
+      probable: {},
       icon: L.icon({
         iconUrl: '/images/map-virus.svg',
         iconSize: [35, 35]
       }),
-      affectedAreas: []
+      affectedAreas: [],
+      isFetching: false
     }
   },
   created() {
+    this.isFetching = true
     this.$fireDb.ref('covidFigures').on('value', snapshot => {
-      let { confirmed, pui, pum } = snapshot.val()
+      let { confirmed, suspect, probable } = snapshot.val()
       this.confirmed = confirmed
-      this.pui = pui
-      this.pum = pum
+      this.suspect = suspect
+      this.probable = probable
+      this.isFetching = false
     })
 
     this.$fireDb.ref('affectedAreas').on('value', snapshot => {
+      this.affectedAreas = []
       snapshot.forEach(childSnapshot => {
         this.affectedAreas.push(childSnapshot.val())
       })
