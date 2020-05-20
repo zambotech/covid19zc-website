@@ -32,7 +32,11 @@
       </nav>
       <nuxt />
       <footer class="flex text-purple-900 mb-8 text-xs md:text-sm">
-        Made by Zamboanga Tech Community for Zamboangueños
+        <p>
+          Made by <a href="https://www.facebook.com/zamboangatech" target="_blank" class="underline">Zamboanga Tech Community</a> 
+          in partnership with <a href="https://www.facebook.com/CSDZambo" target="_blank" class="underline">ZC Computer Services Division</a> 
+          and <a href="https://www.facebook.com/wmsuics2017" target="_blank" class="underline">WMSU Institute of Computer Studies</a>.
+        </p>
       </footer>
     </div>
     <div class="absolute virus-illustration transform origin-bottom-right scale-50 md:scale-75 lg:scale-100 -z-10">
